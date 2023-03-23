@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+           background-color: rgb(112, 212, 252);
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           height: 100vh;
+        }
+h2{
+    text-align: center;
+}
+#form-container{
+  background-color: white;
+  text-align: center;  
+  padding: 20px;
+
+}
+.inp{
+    width: 200px;
+    margin: 6px 5px;
+    padding: 10px;
+    cursor: pointer;
+}
+#sub:hover{
+    background-color:rgb(112, 212, 252);
+    border-color: aquamarine;
+    color: rgb(126, 79, 23);
+}
+.error{
+    color: red;
+    text-align: left;
+}
+    </style>
+</head>
+<body>
+    <div id="form-container">
+        <h2>Login</h2>
+        <form action="" class="form" onsubmit="return ValidateForm()">
+            <input type="text" placeholder="Username" id="user" class="inp"><br>
+            <p id="usererror" class="error"></p>
+            <input type="password" placeholder="Password" id="pass" class="inp"><br>
+            <p id="passerror" class="error"></p>
+            <input type="submit" class="inp" id="sub">
+        </form>
+    </div>
+
+    <script>
+        let flag=1;
+        function ValidateForm(){
+           if(user.value==""){
+            document.getElementById("usererror").innerHTML="Username is empty"
+           flag=0;
+           }else if(user.value.length<4){
+            document.getElementById("usererror").innerHTML="Requard min 4 character"
+            flag=0;
+            }
+           else{
+            document.getElementById("usererror").innerHTML="";
+            flag=1;
+           }
+           if(pass.value==""){
+            document.getElementById("passerror").innerHTML="Password is empty"
+            flag=0;
+           }
+           else if(pass.value.length<4){
+            document.getElementById("passerror").innerHTML="Requard min 4 character or number"
+            flag=0;
+           }
+           else{
+            document.getElementById("passerror").innerHTML="";
+            flag=1;
+           }
+
+           if(flag){
+            return true;  
+           }
+           return false;
+        }
+    </script>
+</body>
+</html>
